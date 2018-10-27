@@ -1,24 +1,9 @@
 
 # JS questions for interviews
 
-Here i collected several JS questions that I could be used during a job interview
-and also as a tool to learn new stuff. I think questions are well balanced
-between JS implementation details and general, broad topics.
+Here i collected several JS questions that could be used during a job interview. Also as a tool to learn new stuff.
 
-
----
-
-> ### Could you explain Coercion in JS?
-
-
----
-
-> ### Could you explain Scope in JS?
-
-
----
-
-> ### Could you explain equality in JS?
+I think questions are a well balanced list of JS implementation details and general, broader topics.
 
 
 ---
@@ -38,18 +23,13 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### How would you write a function that allows you to do this?
+> ### How would you write a function that allows you to achieve the following snippet?
 
 ```js
-  var addSix = createBase(6)
-  addSix(10) // returns 16
-  addSix(21) // returns 27
+var addSix = createBase(6)
+addSix(10)  // returns 16
+addSix(21)  // returns 27
 ```
-
-
----
-
-> ### Explain Values and Types in JavaScript
 
 
 ---
@@ -59,7 +39,7 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### What is let keyword in JavaScript?
+> ### What is `let` keyword in JavaScript? How is it different from other similar keywords?
 
 
 ---
@@ -69,7 +49,7 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### What is IIFEs (Immediately Invoked Function Expressions)?
+> ### What is an IIFE (Immediately Invoked Function Expressions)?
 
 
 ---
@@ -94,47 +74,51 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### What is “closure” in JS? Could you provide an example?
+> ### What is a “closure” in JS? Could you provide an example?
 
 
 ---
 
-> ### What are some of the features introduced in version ES2015 of EcmaScript? And beyond that?
-
-
----
 
 > ### Explain the Prototype Inheritance in JavaScript
 
 
 ---
 
-> ### Create a function that checks if a given string is isomorphic
+> ### Create a function that checks if a number consists only of even digits
 
-*Two strings (**s** and **t**) are isomorphic if the characters in **s** can be replaced to get **t**.*
-
-```
-  // Example 1:
-  Input: s = "egg", t = "pdd"
-  Output: true
-
-  // Example 2:
-  Input: s = "foo", t = "bar"
-  Output: false
-
-  // Example 3:
-  Input: s = "paper", t = "title"
-  Output: true
+```js
+evenDigitsOnly(5200)   // false
+evenDigitsOnly(4)      // true
+evenDigitsOnly(13)     // false
+evenDigitsOnly(22410)  // true
 ```
 
 ---
 
-> ### What does the term “transpiling” mean?
+> ### What does “transpiling” mean?
 
 
 ---
 
-> ### How does the `this` keyword work? Provide some examples.
+> ### What is the output of the following code?
+
+```js
+var o = {
+  n: 42,
+  getN: () => n,
+  getValue: function () {
+    return this.n
+  }
+}
+
+console.log(o.n)
+console.log(o.getN)
+console.log(o.getValue)
+console.log(o.n())
+console.log(o.getN())
+console.log(o.getValue())
+```
 
 
 ---
@@ -142,9 +126,9 @@ between JS implementation details and general, broad topics.
 > ### How would you make the following snippet work?
 
 ```js
-  var arr = [1, 2, 3, 4, 5]
-  var avg = arr.average()
-  console.log(avg) // => 3
+var arr = [1, 2, 3, 4, 5]
+var avg = arr.average()
+console.log(avg) // => 3
 ```
 
 ---
@@ -167,30 +151,41 @@ between JS implementation details and general, broad topics.
 > ### What’s the output of the following code snippet? Why?
 
 ```js
-  var x = 1
+var x = 1
 
-  function foo() {
-    console.log('x is:', x)
-    var x = 2
-  }
+function foo() {
+  console.log('x is:', x)
+  var x = 2
+  console.log('x is:', x)
+}
 
-  foo()
+foo()
 ```
 
 
 ---
 
-> ### What’s the return value of each function in the following snippet? 
+> ### What’s the output of the following snippet? 
 
 ```js
-  console.log(c())
-  console.log(b())
-  console.log(a())
+console.log(c())
+console.log(b())
+console.log(a())
 
-  var a = function() { return 'a' }
-  var b = () => 'b'
-  function c() { return 'c' }
+var a = function() { return 'a' }
+var b = () => 'b'
+function c() { return 'c' }
 ```
+
+
+---
+
+> ### Could you explain Coercion in JS? Use some examples.
+
+
+---
+
+> ### Could you explain Scoping in JS? Use some examples.
 
 
 ---
@@ -198,7 +193,7 @@ between JS implementation details and general, broad topics.
 > ### What’s the output of the following code snippet? Why?
 
 ```js
-  ['1', '2', '3'].map(parseInt)
+['1', '2', '3'].map(parseInt)
 ```
 
 
@@ -212,16 +207,16 @@ between JS implementation details and general, broad topics.
 > ### What’s the output of the following code snippet? Why?
 
 ```js
-  var a = 1
+var a = 1
 
-  function b () { 
-    a = 10; 
-    return; 
-    function a() {} 
-  }
+function b () { 
+  a = 10; 
+  return; 
+  function a() {} 
+}
 
-  b()
-  console.log(a)
+b()
+console.log(a)
 ```
 
 
@@ -230,13 +225,13 @@ between JS implementation details and general, broad topics.
 > ### What’s the output of the following code? Why? 
 
 ```js
-  const arr = [1, 2, 3, 4]
+const arr = [1, 2, 3, 4]
 
-  for (var i = 0; i < arr.length; i++) {
-    setTimeout(function() {
-      console.log(arr[i])
-    }, 1000)
-  }
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function() {
+    console.log(arr[i])
+  }, 1000)
+}
 ```
 
 ---
@@ -256,6 +251,11 @@ between JS implementation details and general, broad topics.
 
 ---
 
+> ### What are the main issues modern JS frameworks (React, Vue, Angular) solve?
+
+
+---
+
 > ### How would you select all H1 and H2 from a page, and log their content to the console?
 
 
@@ -266,7 +266,7 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### Is JS a render-blocking or non-render-blocking resource? How would you achieve the opposite behavior?
+> ### Is JS a render-blocking or non render-blocking resource? How would you achieve the opposite behavior?
 
 
 ---
@@ -274,13 +274,13 @@ between JS implementation details and general, broad topics.
 > ### What’s the difference between the following code snippets? When should I use one or another?
 
 ```js
-  // 1
-  var func() {...}
-  module.exports = func
+// 1
+var func() {...}
+module.exports = func
 
-  // 2
-  var func() {...}
-  export default func
+// 2
+var func() {...}
+export default func
 ```
 
 
@@ -296,19 +296,10 @@ between JS implementation details and general, broad topics.
 
 ---
 
-> ### Is the following syntax valid? Explain it
-
-```js
-  var [ a = 1, a = 2 ] = foo()
-```
-
-
----
-
 > ### How would you achieve the following output?
 
 ```js
-  foo.bar === foo.bar  // false
+foo.bar === foo.bar  // false
 ```
 
 ---
@@ -325,4 +316,18 @@ g(2)  // 9
 
 ---
 
-> ### How would you define a pure function? Can you write some example of a pure and impure functions?
+> ### How would you define a "pure function"? Can you write some example of pure and impure functions?
+
+---
+
+> ### How would you capture each click on a page, and log a message to the console?
+
+---
+
+> ### What is the difference between the Load event and the DOMContentLoaded event?
+
+---
+
+> ### How could you verify whether one DOM element is child of another?
+
+---
